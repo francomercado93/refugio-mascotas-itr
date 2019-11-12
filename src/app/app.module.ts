@@ -12,8 +12,7 @@ import { MascotasService } from './mascotas/shared/mascotas.service';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    MascotasAgregarComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
