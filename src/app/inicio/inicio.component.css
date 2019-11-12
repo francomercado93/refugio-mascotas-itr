@@ -1,5 +1,6 @@
-.responsive {
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-  }
+.absolute {
+    
+    position: absolute;
+     top: 30%;
+
+}

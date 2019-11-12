@@ -1,12 +1,18 @@
+<!-- Agregar *ngIf si no existen mascotas -->
 <div class="clr-row">
   <div class="clr-col-12">
     <h1>
       Mascotas para adoptar
     </h1>
-    <button class="btn btn-outline" routerLink="/mascotas-agregar">AGREGAR MASCOTA</button>
+    <div class="clr-row">
+      <div class="clr-col-12">
+        <button class="btn btn-outline" routerLink="/mascotas-agregar">AGREGAR
+          MASCOTA</button>
+      </div>
+    </div>
   </div>
 </div>
-<div class="clr-row clr-justify-content-center">
+<div *ngIf="hayMascotas()" class="clr-row clr-justify-content-center">
   <div class="clr-col">
     <table class="table">
       <thead>
@@ -26,5 +32,11 @@
         </tr>
       </tbody>
     </table>
+  </div>
+</div>
+<div *ngIf="!hayMascotas()" class="clr-row clr-justify-content-center">
+  <div class="clr-col-4">
+    <h2>No hay mascotas actualmente</h2>
+    <img alt="Panda feliz" class="responsive" src="assets/img/panda.png">
   </div>
 </div>

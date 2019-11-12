@@ -9,13 +9,18 @@ import { Mascota } from '../shared/mascota';
 })
 export class MascotasListarComponent implements OnInit {
 
-  mascotas: Array<Mascota> = []
+  mascotas: Array<Mascota> = null
+
   constructor(private mascotasService: MascotasService) { }
 
   ngOnInit() {
     this.mascotasService.getMascotas().subscribe((data) => {
       this.mascotas = data
     })
+  }
+
+  hayMascotas() {
+    return this.mascotas != null
   }
 
 }

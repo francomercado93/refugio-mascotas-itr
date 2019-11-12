@@ -1,1 +1,1 @@
-export const baseUrl = 'http://localhost:8090/mascotas'
+export const baseUrl = 'http://localhost:8090/'
