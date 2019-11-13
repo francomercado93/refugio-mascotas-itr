@@ -30,10 +30,14 @@ export class MascotasListarComponent implements OnInit {
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
     await delay(700);
     this.mascotasService.deleteMascota(id).subscribe((data) => {
-      this.mascotas.splice(this.mascotas.findIndex((pet) => pet.id == id), 1)
+      this.deleteMascotaLocal(id);
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
       console.log("Mascota eliminada de la base de datos!")
     })
+  }
+
+  private deleteMascotaLocal(id: number) {
+    this.mascotas.splice(this.mascotas.findIndex((pet) => pet.id == id), 1);
   }
 
   public getValidateBtnState(mascotaId: number) {
