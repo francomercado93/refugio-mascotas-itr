@@ -50,5 +50,4 @@ export class MascotasEditarComponent implements OnInit {
   navigateMascotasListar() {
     this.router.navigate(['/mascotas-listar']);
   }
-
 }

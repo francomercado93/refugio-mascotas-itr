@@ -31,4 +31,8 @@ export class MascotasService {
   public updateMascota(mascota: Mascota) {
     return this.httpClient.put<Mascota>(`${baseUrl}/mascotas`, mascota)
   }
+
+  public deleteMascota(idMascotaEliminar: number) {
+    return this.httpClient.delete<Mascota>(`${baseUrl}/mascotas/${idMascotaEliminar}`)
+  }
 }

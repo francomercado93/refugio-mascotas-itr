@@ -31,9 +31,15 @@
           <td>{{mascota.edad}}</td>
           <td class="left">{{mascota.descripcion}}</td>
           <td>
-            <a [routerLink]="['/mascotas-editar', mascota.id]">
-              <clr-icon shape="pencil" class="is-success"></clr-icon>
-            </a>
+            <div class="btn-group full-width">
+              <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
+                <clr-icon shape="pencil" class="is-solid"></clr-icon>
+              </button>
+              <button class="btn btn-icon btn-danger" type="button" (click)="delete(mascota.id)"
+                [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
+                <clr-icon shape="trash" class="is-solid"></clr-icon>
+              </button>
+            </div>
           </td>
         </tr>
       </tbody>
