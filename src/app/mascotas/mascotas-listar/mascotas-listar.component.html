@@ -20,7 +20,7 @@
           <th>Nombre</th>
           <th>Tipo</th>
           <th>Edad</th>
-          <th>Descripcion</th>
+          <th class="left">Descripcion</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -29,7 +29,7 @@
           <td>{{mascota.nombre | titlecase}}</td>
           <td>{{mascota.tipo | titlecase}}</td>
           <td>{{mascota.edad}}</td>
-          <td>{{mascota.descripcion}}</td>
+          <td class="left">{{mascota.descripcion}}</td>
           <td>
             <a [routerLink]="['/mascotas-editar', mascota.id]">
               <clr-icon shape="pencil" class="is-success"></clr-icon>

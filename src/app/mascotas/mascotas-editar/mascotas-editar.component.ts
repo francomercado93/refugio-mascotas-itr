@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { MascotasService } from '../shared/mascotas.service';
-import { Mascota } from '../shared/mascota';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MascotasService } from '../shared/mascotas.service';
 import { TipoAnimal } from '../shared/tipoAnimal';
 
 @Component({
