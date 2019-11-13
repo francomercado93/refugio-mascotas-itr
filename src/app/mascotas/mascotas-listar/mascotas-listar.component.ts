@@ -30,8 +30,8 @@ export class MascotasListarComponent implements OnInit {
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
     await delay(700);
     this.mascotasService.deleteMascota(id).subscribe((data) => {
-      this.deleteMascotaLocal(id);
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
+      this.deleteMascotaLocal(id);
       console.log("Mascota eliminada de la base de datos!")
     })
   }
