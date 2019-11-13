@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'inicio', component: InicioComponent },
   { path: 'mascotas-listar', component: MascotasListarComponent },
   { path: 'mascotas-agregar', component: MascotasAgregarComponent },
-  { path: 'mascotas-editar', component: MascotasEditarComponent },
+  { path: 'mascotas-editar/:id', component: MascotasEditarComponent },
   { path: '**', component: PageNotFoundComponent },
 
 ]

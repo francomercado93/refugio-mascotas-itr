@@ -9,11 +9,11 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var mascotas = [
-    { id: 1, nombre: "pepe trueno", tipo: "gato", edad: 3, descripcion: "gruñon y juguetón" },
-    { id: 2, nombre: "chispita", tipo: "perro", edad: 5, descripcion: "se comporta muy bien" },
-    { id: 3, nombre: "rafael", tipo: "tortuga", edad: 2, descripcion: "le encanta la lechuga y pasear por la casa (si, también le gusta la pizza)" },
-    { id: 4, nombre: "yogui", tipo: "perro", edad: 1, descripcion: "super activo, le gusta correr mucho" },
-    { id: 5, nombre: "piolin", tipo: "guacamaya", edad: 3, descripcion: "muy colorida, come frutas y ¡habla!" }
+    { id: 1, nombre: "pepe trueno", tipo: "Gato", edad: 3, descripcion: "gruñon y juguetón" },
+    { id: 2, nombre: "chispita", tipo: "Perro", edad: 5, descripcion: "se comporta muy bien" },
+    { id: 3, nombre: "rafael", tipo: "Tortuga", edad: 2, descripcion: "le encanta la lechuga y pasear por la casa (si, también le gusta la pizza)" },
+    { id: 4, nombre: "yogui", tipo: "Perro", edad: 1, descripcion: "super activo, le gusta correr mucho" },
+    { id: 5, nombre: "piolin", tipo: "Guacamayo", edad: 3, descripcion: "muy colorida, come frutas y ¡habla!" }
 ];
 
 var tipos = [

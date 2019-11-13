@@ -13,15 +13,22 @@ export class MascotasService {
 
   public getMascotas() {
     // Interpolacion de cadenas de texto (ES6) para crear cadenas de texto
-    return this.httpClient.get<Array<Mascota>>(`${baseUrl}` + "mascotas");
+    return this.httpClient.get<Array<Mascota>>(`${baseUrl}/mascotas`);
   }
 
   public getTiposAnimales() {
-    return this.httpClient.get<Array<TipoAnimal>>(`${baseUrl}` + "tipos")
+    return this.httpClient.get<Array<TipoAnimal>>(`${baseUrl}/tipos`)
   }
 
-
   public addMascota(mascota: Mascota) {
-    return this.httpClient.post<Mascota>(`${baseUrl}` + "mascotas", mascota)
+    return this.httpClient.post<Mascota>(`${baseUrl}/mascotas`, mascota)
+  }
+
+  public getMascota(id: string) {
+    return this.httpClient.get<Mascota>(`${baseUrl}/mascotas/${id}`)
+  }
+
+  public updateMascota(mascota: Mascota) {
+    return this.httpClient.put<Mascota>(`${baseUrl}/mascotas`, mascota)
   }
 }
