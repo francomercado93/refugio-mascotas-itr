@@ -11,7 +11,7 @@ import { ClrLoadingState } from '@clr/angular';
 export class MascotasListarComponent implements OnInit {
 
   validateBtnState: Map<number, ClrLoadingState> = new Map()
-  mascotas: Array<Mascota> = null
+  mascotas: Array<Mascota>
   basic: boolean = false
   mascotaSeleccionada: Mascota
 
@@ -24,9 +24,10 @@ export class MascotasListarComponent implements OnInit {
     })
   }
 
-  hayMascotas() {
-    return this.mascotas != null
+  hayMascotas(): boolean {
+    return this.mascotas.length != 0
   }
+
 
   async delete() {
     let id = this.mascotaSeleccionada.id
@@ -40,20 +41,20 @@ export class MascotasListarComponent implements OnInit {
     })
   }
 
-  private deleteMascotaLocal(id: number) {
+  private deleteMascotaLocal(id: number): void {
     this.mascotas.splice(this.mascotas.findIndex((pet) => pet.id == id), 1);
   }
 
-  public getValidateBtnState(mascotaId: number) {
+  public getValidateBtnState(mascotaId: number): ClrLoadingState {
     return this.validateBtnState.get(mascotaId)
   }
 
-  openModal(mascota: Mascota) {
+  openModal(mascota: Mascota): void {
     this.mascotaSeleccionada = mascota
     this.basic = true
   }
 
-  closeModal() {
+  closeModal(): void {
     this.basic = false
   }
 }
