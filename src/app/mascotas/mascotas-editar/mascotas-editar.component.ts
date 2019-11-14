@@ -18,7 +18,7 @@ export class MascotasEditarComponent implements OnInit {
     // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
     id: [''],
     nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
-    edad: ['', [Validators.required, Validators.min(0)]],
+    edad: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
     tipo: ['', Validators.required],
     descripcion: ['', Validators.required]
   })
