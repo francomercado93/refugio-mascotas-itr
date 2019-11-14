@@ -4,16 +4,23 @@
         <form clrForm [formGroup]="mascotaForm" (ngSubmit)="onSubmit()" class="full-width-form">
             <clr-input-container>
                 <label>Nombre</label>
-                <input clrInput type="text" formControlName="nombre" name="nombre" />
+                <input clrInput type="text" formControlName="nombre" name="nombre" autofocus />
                 <clr-control-helper>Ingresa un nombre</clr-control-helper>
-                <clr-control-error>El nombre de la mascota tiene que tener 3 o más caracteres.
+                <clr-control-error *clrIfError="'required'">El nombre es obligatorio
+                </clr-control-error>
+                <clr-control-error *clrIfError="'minlength'">El nombre de la mascota tiene que tener 3 o más caracteres.
+                </clr-control-error>
+                <clr-control-error *clrIfError="'pattern'">El nombre no puede contener caracteres especiales
                 </clr-control-error>
             </clr-input-container>
             <clr-input-container>
                 <label>Edad</label>
                 <input clrInput type="number" formControlName="edad" name="edad" />
                 <clr-control-helper>Ingrese la edad de la mascota</clr-control-helper>
-                <clr-control-error>Debe ingresar una edad valida</clr-control-error>
+                <clr-control-error *clrIfError="'required'">Edad es obligatorio
+                </clr-control-error>
+                <clr-control-error *clrIfError="'min'">Debe ingresar una edad valida
+                </clr-control-error>
             </clr-input-container>
             <clr-select-container>
                 <label>Tipo de animal</label>

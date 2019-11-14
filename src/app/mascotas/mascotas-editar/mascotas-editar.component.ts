@@ -16,8 +16,8 @@ export class MascotasEditarComponent implements OnInit {
   public mascotaForm = this.formBuilder.group({
     // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
     id: [''],
-    nombre: ['', [Validators.required, Validators.minLength(3)]],
-    edad: ['', [Validators.required, Validators.pattern('[0-9]+'), Validators.min(0)]],
+    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
+    edad: ['', [Validators.required, Validators.min(0)]],
     tipo: ['', Validators.required],
     descripcion: ['', Validators.required]
   })
@@ -49,5 +49,16 @@ export class MascotasEditarComponent implements OnInit {
 
   navigateMascotasListar() {
     this.router.navigate(['/mascotas-listar']);
+  }
+
+  resetForm() {
+    this.mascotasService.getMascota(this.idMascota).subscribe((data) => {
+      this.mascotaForm.setValue(data)
+      console.log(this.mascotaForm.value)
+    })
+  }
+
+  get idMascota() {
+    return this.mascotaForm.get('id').value
   }
 }

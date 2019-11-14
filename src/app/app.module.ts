@@ -1,18 +1,20 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
-import { MascotasAgregarComponent } from './mascotas/mascotas-agregar/mascotas-agregar.component';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MascotasService } from './mascotas/shared/mascotas.service';
+import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    routingComponents,
+    FirstLetterUpperCasePipe
   ],
   imports: [
     BrowserModule,

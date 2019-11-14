@@ -6,15 +6,21 @@
         <label>Nombre</label>
         <input clrInput type="text" formControlName="nombre" name="nombre" />
         <clr-control-helper>Ingresa un nombre</clr-control-helper>
-        <!-- *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" -->
-        <clr-control-error>El nombre de la mascota tiene que tener 3 o más caracteres.
+        <clr-control-error *clrIfError="'required'">El nombre es obligatorio
+        </clr-control-error>
+        <clr-control-error *clrIfError="'minlength'">El nombre de la mascota tiene que tener 3 o más caracteres.
+        </clr-control-error>
+        <clr-control-error *clrIfError="'pattern'">El nombre no puede contener caracteres especiales
         </clr-control-error>
       </clr-input-container>
       <clr-input-container>
         <label>Edad</label>
         <input clrInput type="number" formControlName="edad" name="edad" />
         <clr-control-helper>Ingrese la edad de la mascota</clr-control-helper>
-        <clr-control-error>Debe ingresar una edad valida</clr-control-error>
+        <clr-control-error *clrIfError="'required'">Edad es obligatorio
+        </clr-control-error>
+        <clr-control-error *clrIfError="'min'">Debe ingresar una edad valida
+        </clr-control-error>
       </clr-input-container>
       <clr-select-container>
         <label>Tipo de animal</label>
@@ -37,6 +43,7 @@
       <div [clrLoading]="validateBtnState" class="btn-group button-group clr-row clr-justify-content-center">
         <button class="btn btn-success" type="submit" [disabled]="!mascotaForm.valid || mascotaForm.pristine"
           autofocus>Actualizar</button>
+          <button class="btn btn-terciary" type="button" (click)="resetForm()">Reset</button>
         <button class="btn btn-terciary" type="button" (click)="navigateMascotasListar()">Cancelar</button>
       </div>
     </form>

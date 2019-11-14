@@ -29,7 +29,7 @@
           <td>{{mascota.nombre | titlecase}}</td>
           <td>{{mascota.tipo | titlecase}}</td>
           <td>{{mascota.edad}}</td>
-          <td class="left">{{mascota.descripcion}}</td>
+          <td class="left">{{mascota.descripcion | firstLetterUpperCase}}</td>
           <td>
             <div class="btn-group full-width">
               <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
@@ -58,6 +58,7 @@
     </div>
   </div>
 </div>
+
 <clr-modal [(clrModalOpen)]="basic">
   <h3 class="modal-title">Atencion</h3>
   <div class="modal-body">
