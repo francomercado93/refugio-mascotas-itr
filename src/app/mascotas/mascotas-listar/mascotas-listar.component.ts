@@ -12,6 +12,8 @@ export class MascotasListarComponent implements OnInit {
 
   validateBtnState: Map<number, ClrLoadingState> = new Map()
   mascotas: Array<Mascota> = null
+  basic: boolean = false
+  mascotaSeleccionada: Mascota
 
   constructor(private mascotasService: MascotasService) { }
 
@@ -26,12 +28,14 @@ export class MascotasListarComponent implements OnInit {
     return this.mascotas != null
   }
 
-  async delete(id: number) {
+  async delete() {
+    let id = this.mascotaSeleccionada.id
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
     await delay(700);
     this.mascotasService.deleteMascota(id).subscribe((data) => {
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
       this.deleteMascotaLocal(id)
+      this.closeModal()
       console.log("Mascota eliminada de la base de datos!")
     })
   }
@@ -42,6 +46,15 @@ export class MascotasListarComponent implements OnInit {
 
   public getValidateBtnState(mascotaId: number) {
     return this.validateBtnState.get(mascotaId)
+  }
+
+  openModal(mascota: Mascota) {
+    this.mascotaSeleccionada = mascota
+    this.basic = true
+  }
+
+  closeModal() {
+    this.basic = false
   }
 }
 

@@ -1,4 +1,13 @@
-<!-- Agregar *ngIf si no existen mascotas -->
+<clr-modal *ngIf="basic" role="dialog" [(clrModalOpen)]=" basic" [clrModalStaticBackdrop]="false">
+  <h3 class="modal-title">Atencion</h3>
+  <div class="modal-body">
+    <p>¿Estas seguro que quieres eliminar la mascota {{mascotaSeleccionada.nombre}}?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline" (click)="closeModal()">Cancel</button>
+    <button type="button" class="btn btn-primary" (click)="delete()">Ok</button>
+  </div>
+</clr-modal>
 <div class="clr-row">
   <div class="clr-col-12">
     <h1>
@@ -26,6 +35,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let mascota of mascotas">
+          <!-- fsdfd -->
           <td>{{mascota.nombre | titlecase}}</td>
           <td>{{mascota.tipo | titlecase}}</td>
           <td>{{mascota.edad}}</td>
@@ -35,7 +45,8 @@
               <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
                 <clr-icon shape="pencil" class="is-solid"></clr-icon>
               </button>
-              <button class="btn btn-icon btn-danger" type="button" (click)="delete(mascota.id)"
+              <!-- (click)="delete(mascota.id)" -->
+              <button class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
                 [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
                 <clr-icon shape="trash" class="is-solid"></clr-icon>
               </button>
@@ -58,14 +69,3 @@
     </div>
   </div>
 </div>
-
-<!-- <clr-modal [(clrModalOpen)]="basic">
-  <h3 class="modal-title">Atencion</h3>
-  <div class="modal-body">
-    <p>¿Estas seguro que quieres eliminar la mascota?</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline" (click)="basic = false">Cancel</button>
-    <button type="button" class="btn btn-primary" (click)="basic = false">Ok</button>
-  </div>
-</clr-modal> -->
