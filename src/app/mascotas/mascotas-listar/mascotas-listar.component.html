@@ -35,7 +35,7 @@
               <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
                 <clr-icon shape="pencil" class="is-solid"></clr-icon>
               </button>
-              <button class="btn btn-icon btn-danger" type="button" (click)="basic = true"
+              <button class="btn btn-icon btn-danger" type="button" (click)="delete(mascota.id)"
                 [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
                 <clr-icon shape="trash" class="is-solid"></clr-icon>
               </button>
