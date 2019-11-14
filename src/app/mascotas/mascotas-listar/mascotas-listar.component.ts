@@ -11,7 +11,7 @@ import { ClrLoadingState } from '@clr/angular';
 export class MascotasListarComponent implements OnInit {
 
   validateBtnState: Map<number, ClrLoadingState> = new Map()
-  mascotas: Array<Mascota>
+  mascotas: Array<Mascota> = new Array()
   basic: boolean = false
   mascotaSeleccionada: Mascota
 
