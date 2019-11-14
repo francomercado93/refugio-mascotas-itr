@@ -12,6 +12,7 @@ import { TipoAnimal } from '../shared/tipoAnimal';
 export class MascotasEditarComponent implements OnInit {
 
   tiposAnimales: TipoAnimal[]
+  alta: boolean = false
 
   public mascotaForm = this.formBuilder.group({
     // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
@@ -23,7 +24,8 @@ export class MascotasEditarComponent implements OnInit {
   })
 
   constructor(private route: ActivatedRoute,
-    private router: Router, private mascotasService: MascotasService,
+    private router: Router,
+    private mascotasService: MascotasService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -31,20 +33,27 @@ export class MascotasEditarComponent implements OnInit {
       this.tiposAnimales = data
     })
 
-    let id = this.route.snapshot.paramMap.get('id')
-
-    this.mascotasService.getMascota(id).subscribe((data) => {
-      this.mascotaForm.setValue(data)
-      console.log(this.mascotaForm.value)
-    })
+    // Edicion de mascota
+    const idMascota = this.route.snapshot.paramMap.get('id')
+    this.alta = idMascota == 'new'
+    if (!this.alta) {
+      this.mascotasService.getMascota(idMascota).subscribe((data) => {
+        this.mascotaForm.setValue(data)
+        console.log(this.mascotaForm.value)
+      })
+    }
   }
 
   onSubmit() {
-    // if (window.confirm("Estas seguro?")) {
-    this.mascotasService.updateMascota(this.mascotaForm.value).subscribe(data => {
-      this.navigateMascotasListar()
-    })
-    // }
+    if (!this.alta) {
+      this.mascotasService.updateMascota(this.mascotaForm.value).subscribe(data => {
+        this.navigateMascotasListar()
+      })
+    } else {
+      this.mascotasService.addMascota(this.mascotaForm.value).subscribe(data => {
+        this.navigateMascotasListar()
+      })
+    }
   }
 
   navigateMascotasListar() {
@@ -52,13 +61,28 @@ export class MascotasEditarComponent implements OnInit {
   }
 
   resetForm() {
-    this.mascotasService.getMascota(this.idMascota).subscribe((data) => {
-      this.mascotaForm.setValue(data)
-      this.mascotaForm.markAsUntouched()
-      console.log(this.mascotaForm.value)
-    })
+    if (!this.alta) {
+      this.mascotasService.getMascota(this.idMascota).subscribe((data) => {
+        this.mascotaForm.setValue(data)
+        this.mascotaForm.markAsUntouched()
+        console.log(this.mascotaForm.value)
+      })
+    } else {
+      this.reset()
+    }
   }
 
+  reset() {
+    this.mascotaForm.reset()
+  }
+  get titulo() {
+    if (!this.alta) {
+      return "Editar mascota"
+    }
+    else {
+      return "Agregar mascota para adopcion"
+    }
+  }
   get idMascota() {
     return this.mascotaForm.get('id').value
   }
