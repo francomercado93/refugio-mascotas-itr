@@ -54,6 +54,7 @@ export class MascotasEditarComponent implements OnInit {
   resetForm() {
     this.mascotasService.getMascota(this.idMascota).subscribe((data) => {
       this.mascotaForm.setValue(data)
+      this.mascotaForm.markAsUntouched()
       console.log(this.mascotaForm.value)
     })
   }

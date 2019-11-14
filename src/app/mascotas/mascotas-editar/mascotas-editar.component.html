@@ -41,9 +41,9 @@
       </clr-input-container>
       <!-- <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">-->
       <div [clrLoading]="validateBtnState" class="btn-group button-group clr-row clr-justify-content-center">
-        <button class="btn btn-success" type="submit" [disabled]="!mascotaForm.valid || mascotaForm.pristine"
-          autofocus>Actualizar</button>
-        <button class="btn btn-terciary" type="button" [disabled]="mascotaForm.pristine"
+        <button class="btn btn-success" type="submit"
+          [disabled]="!mascotaForm.valid || mascotaForm.pristine || mascotaForm.untouched" autofocus>Actualizar</button>
+        <button class="btn btn-terciary" type="button" [disabled]="mascotaForm.pristine || mascotaForm.untouched"
           (click)="resetForm()">Reset</button>
         <button class="btn btn-terciary" type="button" (click)="navigateMascotasListar()">Cancelar</button>
       </div>
