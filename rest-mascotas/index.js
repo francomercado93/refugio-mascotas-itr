@@ -42,7 +42,11 @@ app.get('/tipos/:id', function (req, res) {
 app.post('/mascotas', function (req, res) {
     let mascota = req.body;
     let ids = mascotas.map(elt => elt.id);
-    mascota.id = Math.max(...ids) + 1;
+    if (mascotas.length == 0) {
+        mascota.id = 1
+    } else {
+        mascota.id = Math.max(...ids) + 1;
+    }
     mascotas.push(mascota);
     res.status(201).json(mascota);
 });

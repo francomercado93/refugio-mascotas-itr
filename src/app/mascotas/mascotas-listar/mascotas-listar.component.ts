@@ -36,6 +36,7 @@ export class MascotasListarComponent implements OnInit {
     this.mascotasService.deleteMascota(id).subscribe((data) => {
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
       this.deleteMascotaLocal(id)
+      // this.mascotas = null
       this.closeModal()
       console.log("Mascota eliminada de la base de datos!")
     })
