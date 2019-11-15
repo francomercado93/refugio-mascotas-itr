@@ -28,7 +28,6 @@ export class MascotasListarComponent implements OnInit {
     return this.mascotas.length != 0
   }
 
-
   async delete() {
     let id = this.mascotaSeleccionada.id
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
@@ -36,7 +35,6 @@ export class MascotasListarComponent implements OnInit {
     this.mascotasService.deleteMascota(id).subscribe((data) => {
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
       this.deleteMascotaLocal(id)
-      // this.mascotas = null
       this.closeModal()
       console.log("Mascota eliminada de la base de datos!")
     })
