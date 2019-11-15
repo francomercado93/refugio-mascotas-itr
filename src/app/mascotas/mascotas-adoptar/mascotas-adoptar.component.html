@@ -1,11 +1,10 @@
 <h1>Mascotas para adoptar</h1>
 <br />
-<clr-accordion>
-    <clr-accordion-panel *ngFor="let tipo of tiposAnimales">
-        <clr-accordion-title>
-            {{ tipo.nombre }}s
-        </clr-accordion-title>
-        <clr-accordion-content *clrIfExpanded>
+
+<clr-tabs>
+    <clr-tab *ngFor="let tipo of tiposAnimales">
+        <button clrTabLink id={{tipo.nombre}}>{{ tipo.nombre }}</button>
+        <clr-tab-content id={{tipo.id}} *clrIfActive>
             <div class="alert alert-warning height-alert" role="alert" *ngIf="!hayMascotas(tipo.nombre)">
                 <div class="alert-item static">
                     <div class="alert-icon-wrapper">
@@ -19,6 +18,6 @@
                     <app-mascotas-card [mascota]="mascota"></app-mascotas-card>
                 </div>
             </div>
-        </clr-accordion-content>
-    </clr-accordion-panel>
-</clr-accordion>
+        </clr-tab-content>
+    </clr-tab>
+</clr-tabs>
