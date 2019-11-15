@@ -28,15 +28,8 @@ export class MascotasAdoptarComponent implements OnInit {
     return this.mascotas.filter(mascota => mascota.tipo == tipo)
   }
 
-  getEdadMascota(edad: number) {
-    var anios = "Año"
-    if (edad > 1) {
-      anios = anios.concat("s")
-    }
-    return edad.toString().concat(" " + anios)
-  }
-
   hayMascotas(tipo: string) {
     return this.getMascotasPorTipo(tipo).length != 0
   }
+
 }

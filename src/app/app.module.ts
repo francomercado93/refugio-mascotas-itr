@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { MascotasService } from './mascotas/shared/mascotas.service';
 import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
 import { MascotasAdoptarComponent } from './mascotas/mascotas-adoptar/mascotas-adoptar.component';
+import { MascotasCardComponent } from './mascotas/mascotas-card/mascotas-card.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MascotasAdoptarComponent } from './mascotas/mascotas-adoptar/mascotas-a
     AppComponent,
     routingComponents,
     FirstLetterUpperCasePipe,
+    MascotasCardComponent
   ],
   imports: [
     BrowserModule,

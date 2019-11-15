@@ -16,23 +16,7 @@
             </div>
             <div class="clr-row ">
                 <div class="clr-col-lg-4 clr-col-12 " *ngFor="let mascota of getMascotasPorTipo(tipo.nombre)">
-                    <div class="card full-height-card">
-                        <div class="card-header">
-                            {{mascota.nombre | titlecase}}
-                        </div>
-                        <div class="card-img">
-                            <img src={{mascota.imagen}} class="responsive-img">
-                        </div>
-                        <div class="card-block">
-                            <h3 class="card-title">{{getEdadMascota(mascota.edad)}}</h3>
-                            <p class="card-text">
-                                {{mascota.descripcion | firstLetterUpperCase}}
-                            </p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="..." class="btn btn-sm btn-link">Adoptar</a>
-                        </div>
-                    </div>
+                    <app-mascotas-card [mascota]="mascota"></app-mascotas-card>
                 </div>
             </div>
         </clr-accordion-content>
