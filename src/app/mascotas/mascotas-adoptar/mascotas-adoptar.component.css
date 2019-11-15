@@ -1,0 +1,10 @@
+.responsive-img{
+    width: auto;
+    /* max-width: 500px; */
+    max-height: 150px;
+    /* height: auto; */
+}
+
+.height-alert{
+    height: 50px;
+}

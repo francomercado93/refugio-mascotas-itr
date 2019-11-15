@@ -20,7 +20,8 @@ export class MascotasEditarComponent implements OnInit {
     nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
     edad: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
     tipo: ['', Validators.required],
-    descripcion: ['', Validators.required]
+    descripcion: ['', Validators.required],
+    imagen: ['']
   })
 
   constructor(private route: ActivatedRoute,
@@ -36,6 +37,7 @@ export class MascotasEditarComponent implements OnInit {
     // Edicion de mascota
     const idMascota = this.route.snapshot.paramMap.get('id')
     this.alta = idMascota == 'new'
+    
     if (!this.alta) {
       this.mascotasService.getMascota(idMascota).subscribe((data) => {
         this.mascotaForm.setValue(data)

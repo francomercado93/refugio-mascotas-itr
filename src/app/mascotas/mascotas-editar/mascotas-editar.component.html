@@ -41,6 +41,11 @@
         </clr-control-helper>
         <clr-control-error>El campo es obligatorio</clr-control-error>
       </clr-input-container>
+      <clr-input-container>
+        <label>Imagen</label>
+        <input clrInput type="url" formControlName="imagen" name="imagen" />
+        <clr-control-helper>Ingresa el link de una imagen</clr-control-helper>
+      </clr-input-container>
       <div [clrLoading]="validateBtnState" class="btn-group button-group clr-row clr-justify-content-center">
         <button class="btn btn-success" type="submit"
           [disabled]="!mascotaForm.valid || mascotaForm.pristine || mascotaForm.untouched" autofocus>Aceptar</button>

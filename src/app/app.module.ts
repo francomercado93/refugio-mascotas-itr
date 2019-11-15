@@ -8,13 +8,14 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MascotasService } from './mascotas/shared/mascotas.service';
 import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
+import { MascotasAdoptarComponent } from './mascotas/mascotas-adoptar/mascotas-adoptar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
-    FirstLetterUpperCasePipe
+    FirstLetterUpperCasePipe,
   ],
   imports: [
     BrowserModule,
