@@ -55,4 +55,17 @@
       </div>
     </form>
   </div>
+  <div class="clr-col-11">
+    <div class="progress-block">
+      <label>Simple Layout</label>
+      <div [ngClass]="{ 'progress': true, 
+        'labeled': true, 
+        'flash': mascotaForm.valid,
+        'flash-danger': !mascotaForm.valid
+      }">
+        <progress value={{statusMascotaForm}} max="100" data-displayval="20%"></progress>
+      </div>
+      <span>{{statusMascotaForm}}%</span>
+    </div>
+  </div>
 </div>
