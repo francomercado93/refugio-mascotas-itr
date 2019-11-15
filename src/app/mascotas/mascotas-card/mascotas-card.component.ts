@@ -25,5 +25,4 @@ export class MascotasCardComponent implements OnInit {
   noImg(mascota: Mascota) {
     return mascota.imagen == null || mascota.imagen == ''
   }
-
 }
