@@ -13,17 +13,9 @@ export class MascotasEditarComponent implements OnInit {
 
   tiposAnimales: TipoAnimal[]
   alta: boolean = false
-  // statusMascotaForm: number = 50
+  status: number = 0
 
-  public mascotaForm = this.formBuilder.group({
-    // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
-    id: [''],
-    nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
-    edad: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
-    tipo: ['', Validators.required],
-    descripcion: ['', Validators.required],
-    imagen: ['']
-  })
+  public mascotaForm
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -31,10 +23,8 @@ export class MascotasEditarComponent implements OnInit {
     private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.mascotasService.getTiposAnimales().subscribe((data) => {
-      this.tiposAnimales = data
-    })
-
+    this.setValidators();
+    this.setMascotas();
     // Edicion de mascota
     const idMascota = this.route.snapshot.paramMap.get('id')
     this.alta = idMascota == 'new'
@@ -45,6 +35,24 @@ export class MascotasEditarComponent implements OnInit {
         console.log(this.mascotaForm.value)
       })
     }
+  }
+
+  private setMascotas() {
+    this.mascotasService.getTiposAnimales().subscribe((data) => {
+      this.tiposAnimales = data;
+    });
+  }
+
+  private setValidators() {
+    this.mascotaForm = this.formBuilder.group({
+      // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
+      id: [''],
+      nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
+      edad: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
+      tipo: ['', Validators.required],
+      descripcion: ['', Validators.required],
+      imagen: ['']
+    });
   }
 
   onSubmit() {
@@ -77,7 +85,10 @@ export class MascotasEditarComponent implements OnInit {
 
   reset() {
     this.mascotaForm.reset()
+    this.setValidators()
+    this.status = 0
   }
+
   get titulo() {
     if (!this.alta) {
       return "Editar mascota"
@@ -91,23 +102,22 @@ export class MascotasEditarComponent implements OnInit {
   }
 
   get statusMascotaForm() {
-    var status = 0
     if (this.mascotaForm.get('nombre').value != '') {
-      status = 20
+      this.status = 20
     }
     if (this.mascotaForm.get('edad').value != '') {
-      status += 20
+      this.status += 20
     }
     if (this.mascotaForm.get('tipo').value != '') {
-      status += 20
+      this.status += 20
     }
     if (this.mascotaForm.get('descripcion').value != '') {
-      status += 20
+      this.status += 20
     }
     if (this.mascotaForm.get('imagen').value != '') {
-      status += 20
+      this.status += 20
     }
-    return status
+    return this.status
   }
 
   mascotaFormValid(): boolean {

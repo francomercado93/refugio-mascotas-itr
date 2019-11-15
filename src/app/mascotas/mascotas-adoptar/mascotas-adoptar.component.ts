@@ -32,4 +32,7 @@ export class MascotasAdoptarComponent implements OnInit {
     return this.getMascotasPorTipo(tipo).length != 0
   }
 
+  isCat(nombre: string) {
+    return nombre == "Gato"
+  }
 }

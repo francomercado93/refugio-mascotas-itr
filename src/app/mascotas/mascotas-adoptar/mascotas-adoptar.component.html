@@ -4,7 +4,7 @@
 <clr-tabs>
     <clr-tab *ngFor="let tipo of tiposAnimales">
         <button clrTabLink id={{tipo.nombre}}>{{ tipo.nombre }}</button>
-        <clr-tab-content id={{tipo.id}} *clrIfActive>
+        <clr-tab-content id={{tipo.id}} *clrIfActive="isCat(tipo.nombre)">
             <div class="alert alert-warning height-alert" role="alert" *ngIf="!hayMascotas(tipo.nombre)">
                 <div class="alert-item static">
                     <div class="alert-icon-wrapper">
