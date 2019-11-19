@@ -6,10 +6,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClarityModule } from '@clr/angular';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MascotasService } from './mascotas/shared/mascotas.service';
-import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
-import { MascotasAdoptarComponent } from './mascotas/mascotas-adoptar/mascotas-adoptar.component';
 import { MascotasCardComponent } from './mascotas/mascotas-card/mascotas-card.component';
+import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
+import { MascotasService } from './mascotas/shared/mascotas.service';
+import { MascotasNotFoundComponent } from './mascotas/mascotas-not-found/mascotas-not-found.component';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { MascotasCardComponent } from './mascotas/mascotas-card/mascotas-card.co
     AppComponent,
     routingComponents,
     FirstLetterUpperCasePipe,
-    MascotasCardComponent
+    MascotasCardComponent,
+    MascotasNotFoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
 <h1>Mascotas para adoptar</h1>
 <br />
 
-<clr-tabs>
+<app-mascotas-not-found *ngIf="hayAnimalesCargados()"></app-mascotas-not-found>
+<clr-tabs *ngIf="existenTiposAnimales()">
     <clr-tab *ngFor="let tipo of tiposAnimales">
-        <button clrTabLink id={{tipo.nombre}}>{{ tipo.nombre }}</button>
+        <button clrTabLink id={{tipo.nombre}}>{{ tipo.nombre }}s</button>
         <clr-tab-content id={{tipo.id}} *clrIfActive="isCat(tipo.nombre)">
             <div class="alert alert-warning height-alert" role="alert" *ngIf="!hayMascotas(tipo.nombre)">
                 <div class="alert-item static">

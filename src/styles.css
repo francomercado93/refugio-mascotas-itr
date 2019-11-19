@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 .responsive {
     width: 100%;
-    max-width: 900px;
+    max-width: 350px;
     height: auto;
     position: relative;
     top: 30%;

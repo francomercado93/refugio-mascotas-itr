@@ -21,51 +21,31 @@
     </div>
   </div>
 </div>
-<div *ngIf="hayMascotas()" class="clr-row clr-justify-content-center">
-  <div class="clr-col">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Tipo</th>
-          <th>Edad</th>
-          <th class="left">Descripcion</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let mascota of mascotas">
-          <!-- fsdfd -->
-          <td>{{mascota.nombre | titlecase}}</td>
-          <td>{{mascota.tipo | titlecase}}</td>
-          <td>{{mascota.edad}}</td>
-          <td class="left">{{mascota.descripcion | firstLetterUpperCase}}</td>
-          <td>
-            <div class="btn-group full-width">
-              <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
-                <clr-icon shape="pencil" class="is-solid"></clr-icon>
-              </button>
-              <!-- (click)="delete(mascota.id)" -->
-              <button class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
-                [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
-                <clr-icon shape="trash" class="is-solid"></clr-icon>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="clr-row clr-justify-content-center" *ngIf="!hayMascotas()">
-  <div class="clr-col-lg-6 clr-col-md-10 clr-col-12">
-    <div class="card">
-      <div class="card-header header-text">
-        <h2>No hay mascotas actualmente</h2>
+<!-- <div *ngIf="hayMascotas()" class="clr-row clr-justify-content-center"> -->
+<clr-datagrid>
+  <clr-dg-column>Nombre</clr-dg-column>
+  <clr-dg-column>Tipo</clr-dg-column>
+  <clr-dg-column>Edad</clr-dg-column>
+  <clr-dg-column>Descripcion</clr-dg-column>
+  <clr-dg-column>Acciones</clr-dg-column>
+
+  <clr-dg-row *ngFor="let mascota of mascotas">
+    <clr-dg-cell>{{mascota.nombre | titlecase}}</clr-dg-cell>
+    <clr-dg-cell>{{mascota.tipo | titlecase}}</clr-dg-cell>
+    <clr-dg-cell>{{mascota.edad}}</clr-dg-cell>
+    <clr-dg-cell>{{mascota.descripcion | firstLetterUpperCase}}</clr-dg-cell>
+    <clr-dg-cell>
+      <div class="btn-group full-width">
+        <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
+          <clr-icon shape="pencil" class="is-solid"></clr-icon>
+        </button>
+        <button class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
+          [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
+          <clr-icon shape="trash" class="is-solid"></clr-icon>
+        </button>
       </div>
-      <div class="card-img">
-        <img alt="Panda feliz" class="responsive" src="assets/img/sad-panda.png">
-      </div>
-    </div>
-  </div>
-</div>
+    </clr-dg-cell>
+  </clr-dg-row>
+  <clr-dg-footer>{{mascotas.length}} mascotas en la base de datos</clr-dg-footer>
+</clr-datagrid>
+<app-mascotas-not-found *ngIf="!hayMascotas()"></app-mascotas-not-found>

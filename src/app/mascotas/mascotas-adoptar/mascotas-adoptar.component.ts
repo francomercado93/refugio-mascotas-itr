@@ -10,8 +10,8 @@ import { TipoAnimal } from '../shared/tipoAnimal';
 })
 export class MascotasAdoptarComponent implements OnInit {
 
-  mascotas: Mascota[]
-  tiposAnimales: TipoAnimal[]
+  mascotas: Mascota[] = new Array()
+  tiposAnimales: TipoAnimal[] = new Array()
 
   constructor(private mascotasService: MascotasService) { }
 
@@ -34,5 +34,13 @@ export class MascotasAdoptarComponent implements OnInit {
 
   isCat(nombre: string) {
     return nombre == "Gato"
+  }
+
+  existenTiposAnimales() {
+    return this.tiposAnimales != null
+  }
+
+  hayAnimalesCargados() {
+    return this.mascotas.length == 0
   }
 }
