@@ -15,7 +15,7 @@
     </h1>
     <div class="clr-row">
       <div class="clr-col-12">
-        <button class="btn btn-outline" routerLink="/mascotas-editar/new">AGREGAR
+        <button title="Agregar mascota" class="btn btn-outline" routerLink="/mascotas-editar/new">AGREGAR
           MASCOTA</button>
       </div>
     </div>
@@ -23,23 +23,24 @@
 </div>
 <!-- <div *ngIf="hayMascotas()" class="clr-row clr-justify-content-center"> -->
 <clr-datagrid>
-  <clr-dg-column>Nombre</clr-dg-column>
-  <clr-dg-column>Tipo</clr-dg-column>
-  <clr-dg-column>Edad</clr-dg-column>
-  <clr-dg-column>Descripcion</clr-dg-column>
+  <clr-dg-placeholder *ngIf="!hayMascotas()">No hay mascotas en la base de datos</clr-dg-placeholder>
+  <clr-dg-column [clrDgField]="'nombre'">Nombre</clr-dg-column>
+  <clr-dg-column [clrDgField]="'tipo'">Tipo</clr-dg-column>
+  <clr-dg-column [clrDgField]="'edad'" [clrDgColType]="'number'">Edad</clr-dg-column>
+  <clr-dg-column [clrDgField]="'descripcion'">Descripcion</clr-dg-column>
   <clr-dg-column>Acciones</clr-dg-column>
-
-  <clr-dg-row *ngFor="let mascota of mascotas">
+  <!-- *clrDgItems similar al *ngFor pero nos permite ordenar, paginar, dentro de un datagrid -->
+  <clr-dg-row *clrDgItems="let mascota of mascotas">
     <clr-dg-cell>{{mascota.nombre | titlecase}}</clr-dg-cell>
     <clr-dg-cell>{{mascota.tipo | titlecase}}</clr-dg-cell>
     <clr-dg-cell>{{mascota.edad}}</clr-dg-cell>
     <clr-dg-cell>{{mascota.descripcion | firstLetterUpperCase}}</clr-dg-cell>
     <clr-dg-cell>
       <div class="btn-group full-width">
-        <button [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
+        <button title="Editar" [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
           <clr-icon shape="pencil" class="is-solid"></clr-icon>
         </button>
-        <button class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
+        <button title="Eliminar" class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
           [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
           <clr-icon shape="trash" class="is-solid"></clr-icon>
         </button>
@@ -48,4 +49,4 @@
   </clr-dg-row>
   <clr-dg-footer>{{mascotas.length}} mascotas en la base de datos</clr-dg-footer>
 </clr-datagrid>
-<app-mascotas-not-found *ngIf="!hayMascotas()"></app-mascotas-not-found>
+<!-- <app-mascotas-not-found *ngIf="!hayMascotas()"></app-mascotas-not-found> -->
