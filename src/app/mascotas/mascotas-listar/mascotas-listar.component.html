@@ -9,19 +9,15 @@
   </div>
 </clr-modal>
 <div class="clr-row">
-  <div class="clr-col-12">
-    <h1>
-      Mascotas para adoptar
-    </h1>
-    <div class="clr-row">
-      <div class="clr-col-12">
-        <button title="Agregar mascota" class="btn btn-outline" routerLink="/mascotas-editar/new">AGREGAR
-          MASCOTA</button>
-      </div>
-    </div>
-  </div>
+  <h1>
+    Mascotas para adoptar
+  </h1>
 </div>
-<!-- <div *ngIf="hayMascotas()" class="clr-row clr-justify-content-center"> -->
+<br />
+<div class="clr-row">
+  <button title="Agregar mascota" class="btn btn-outline" routerLink="/mascotas-editar/new">AGREGAR
+    MASCOTA</button>
+</div>
 <clr-datagrid>
   <clr-dg-placeholder *ngIf="!hayMascotas()">No hay mascotas en la base de datos</clr-dg-placeholder>
   <clr-dg-column [clrDgField]="'nombre'">Nombre</clr-dg-column>
@@ -49,4 +45,3 @@
   </clr-dg-row>
   <clr-dg-footer>{{mascotas.length}} mascotas en la base de datos</clr-dg-footer>
 </clr-datagrid>
-<!-- <app-mascotas-not-found *ngIf="!hayMascotas()"></app-mascotas-not-found> -->
