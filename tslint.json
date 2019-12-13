@@ -1,5 +1,9 @@
 {
   "extends": "tslint:recommended",
+  "semicolon": [
+    false,
+    "never"
+  ],
   "rules": {
     "array-type": false,
     "arrow-parens": false,

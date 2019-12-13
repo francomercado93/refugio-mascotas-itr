@@ -1,0 +1,4 @@
+{
+    "typescriptHero.imports.insertSemicolons": false,
+    "javascript.format.insertSpaceAfterSemicolonInForStatements": false
+}
