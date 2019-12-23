@@ -24,15 +24,15 @@ export class MascotasService {
     return this.httpClient.post<Mascota>(`${baseUrl}/mascotas`, mascota)
   }
 
-  public getMascota(id: string) {
+  public getMascota(id: String) {
     return this.httpClient.get<Mascota>(`${baseUrl}/mascotas/${id}`)
   }
 
   public updateMascota(mascota: Mascota) {
     return this.httpClient.put<Mascota>(`${baseUrl}/mascotas`, mascota)
-  }
+  } 
 
-  public deleteMascota(idMascotaEliminar: number) {
+  public deleteMascota(idMascotaEliminar: String) {
     return this.httpClient.delete<Mascota>(`${baseUrl}/mascotas/${idMascotaEliminar}`)
   }
 }

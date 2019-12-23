@@ -27,6 +27,7 @@ export class MascotasEditarComponent implements OnInit {
     this.setMascotas();
     // Edicion de mascota
     const idMascota = this.route.snapshot.paramMap.get('id')
+    console.log(idMascota)
     this.alta = idMascota == 'new'
 
     if (!this.alta) {
@@ -46,7 +47,7 @@ export class MascotasEditarComponent implements OnInit {
   private setValidators() {
     this.mascotaForm = this.formBuilder.group({
       // TODO: agregar custom validator para que el usuario no pueda ingresar un nombre (o un conjunto de nombre) determinado
-      id: [''],
+      _id: [''],
       nombre: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]+')]],
       edad: ['', [Validators.required, Validators.min(0), Validators.max(120)]],
       tipo: ['', Validators.required],
@@ -98,7 +99,7 @@ export class MascotasEditarComponent implements OnInit {
     }
   }
   get idMascota() {
-    return this.mascotaForm.get('id').value
+    return this.mascotaForm.get('_id').value
   }
 
   get statusMascotaForm() {
