@@ -1,0 +1,20 @@
+<div class="card full-height-card shadow-card">
+  <div class="card-header">
+    {{mascota.nombre | titlecase}}
+  </div>
+  <div *ngIf="noImg(mascota)" class="card-img">
+    <img src="assets/img/huella.jpg" class="responsive-img">
+  </div>
+  <div class="card-img">
+    <img src={{mascota.imagen}} class="responsive-img">
+  </div>
+  <div class="card-block">
+    <h3 class="card-title">{{getEdadMascota(mascota.edad)}}</h3>
+    <p class="card-text">
+      {{mascota.descripcion | firstLetterUpperCase}}
+    </p>
+  </div>
+  <div class="card-footer">
+    <a href="..." class="btn btn-sm btn-link">Adoptar</a>
+  </div>
+</div>

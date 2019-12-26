@@ -1,0 +1,21 @@
+.responsive-img{
+    width: auto;
+    /* max-width: 500px; */
+    max-height: 150px;
+    /* height: auto; */
+}
+
+.height-alert{
+    height: 50px;
+}
+
+.row-card {
+    background-color:rgb(168, 191, 253);
+}
+
+
+.shadow-card{
+    -webkit-box-shadow: 4px 7px 9px -1px rgba(71,77,150,0.77);
+    -moz-box-shadow: 4px 7px 9px -1px rgba(71,77,150,0.77);
+    box-shadow: 4px 7px 9px -1px rgba(71,77,150,0.77);
+}

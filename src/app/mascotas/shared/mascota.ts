@@ -5,5 +5,5 @@ export interface Mascota {
     tipo: string
     edad: number
     descripcion: string
-
+    imagen: string
 }

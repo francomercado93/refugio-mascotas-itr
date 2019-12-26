@@ -1,0 +1,23 @@
+<h1>Mascotas para adoptar</h1>
+<br />
+<app-mascotas-not-found *ngIf="hayAnimalesCargados()"></app-mascotas-not-found>
+<clr-tabs *ngIf="existenTiposAnimales()">
+    <clr-tab *ngFor="let tipo of tiposAnimales">
+        <button clrTabLink id={{tipo.nombre}}>{{ tipo.nombre }}s</button>
+        <clr-tab-content id={{tipo.id}} *clrIfActive="isCat(tipo.nombre)">
+            <div class="alert alert-warning height-alert" role="alert" *ngIf="!hayMascotas(tipo.nombre)">
+                <div class="alert-item static">
+                    <div class="alert-icon-wrapper">
+                        <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+                    </div>
+                    <span class="alert-text">No se encotraron {{tipo.nombre}}s en la base de datos</span>
+                </div>
+            </div>
+            <div class="clr-row ">
+                <div class="clr-col-lg-4 clr-col-12 " *ngFor="let mascota of getMascotasPorTipo(tipo.nombre)">
+                    <app-mascotas-card [mascota]="mascota"></app-mascotas-card>
+                </div>
+            </div>
+        </clr-tab-content>
+    </clr-tab>
+</clr-tabs>
