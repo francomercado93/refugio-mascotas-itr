@@ -12,8 +12,7 @@ const routes: Routes = [
   { path: 'mascotas-adoptar', component: MascotasAdoptarComponent },
   { path: 'mascotas-listar', component: MascotasListarComponent },
   { path: 'mascotas-editar/:id', component: MascotasEditarComponent },
-  { path: '**', component: PageNotFoundComponent },
-
+  { path: '**', component: PageNotFoundComponent }
 ]
 
 @NgModule({
