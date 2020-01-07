@@ -21,6 +21,7 @@ export class MascotasListarComponent implements OnInit {
     this.mascotasService.getMascotas().subscribe((data) => {
       this.mascotas = data
       this.mascotas.forEach((pet) => this.validateBtnState.set(pet._id, ClrLoadingState.DEFAULT))
+      console.log("Mascotas: ");
       console.log(this.mascotas);
     })
   }

@@ -7,9 +7,9 @@ import { ClarityModule } from '@clr/angular';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MascotasCardComponent } from './mascotas/mascotas-card/mascotas-card.component';
+import { MascotasNotFoundComponent } from './mascotas/mascotas-not-found/mascotas-not-found.component';
 import { FirstLetterUpperCasePipe } from './mascotas/shared/firstLetterUpperCase.pipe';
 import { MascotasService } from './mascotas/shared/mascotas.service';
-import { MascotasNotFoundComponent } from './mascotas/mascotas-not-found/mascotas-not-found.component';
 
 
 @NgModule({
