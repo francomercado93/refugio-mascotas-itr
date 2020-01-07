@@ -6,6 +6,16 @@ Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) vers
 
 https://francomercado93.github.io/refugio-mascotas-itr/inicio
 
+## Backend de la aplicacion:
+
+La aplicacion consume los datos de la siguiente api.
+
+https://refugio-java.herokuapp.com/api/mascotas
+
+Repositorio:
+
+https://github.com/francomercado93/refugio-mascotas-backend
+
 ## Resumen:
 
 Se trata de una aplicacion CRUD de mascotas. 
