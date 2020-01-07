@@ -33,11 +33,11 @@
     <clr-dg-cell>{{mascota.descripcion | firstLetterUpperCase}}</clr-dg-cell>
     <clr-dg-cell>
       <div class="btn-group full-width">
-        <button title="Editar" [routerLink]="['/mascotas-editar', mascota.id]" class="btn btn-icon btn-primary">
+        <button title="Editar" [routerLink]="['/mascotas-editar', mascota._id]" class="btn btn-icon btn-primary">
           <clr-icon shape="pencil" class="is-solid"></clr-icon>
         </button>
         <button title="Eliminar" class="btn btn-icon btn-danger" type="button" (click)="openModal(mascota)"
-          [clrLoading]="getValidateBtnState(mascota.id)" id="mascota.id">
+          [clrLoading]="getValidateBtnState(mascota._id)" id="mascota._id">
           <clr-icon shape="trash" class="is-solid"></clr-icon>
         </button>
       </div>

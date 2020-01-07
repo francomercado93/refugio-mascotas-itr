@@ -1,9 +1,10 @@
 export interface Mascota {
 
-    id: number
+    _id: String
     nombre: string
     tipo: string
     edad: number
     descripcion: string
     imagen: string
+
 }

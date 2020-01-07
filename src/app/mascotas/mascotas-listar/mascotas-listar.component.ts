@@ -10,7 +10,7 @@ import { ClrLoadingState } from '@clr/angular';
 })
 export class MascotasListarComponent implements OnInit {
 
-  validateBtnState: Map<number, ClrLoadingState> = new Map()
+  validateBtnState: Map<String, ClrLoadingState> = new Map()
   mascotas: Array<Mascota> = new Array()
   basic: boolean = false
   mascotaSeleccionada: Mascota
@@ -20,7 +20,9 @@ export class MascotasListarComponent implements OnInit {
   ngOnInit() {
     this.mascotasService.getMascotas().subscribe((data) => {
       this.mascotas = data
-      this.mascotas.forEach((pet) => this.validateBtnState.set(pet.id, ClrLoadingState.DEFAULT))
+      this.mascotas.forEach((pet) => this.validateBtnState.set(pet._id, ClrLoadingState.DEFAULT))
+      console.log("Mascotas: ");
+      console.log(this.mascotas);
     })
   }
 
@@ -29,9 +31,9 @@ export class MascotasListarComponent implements OnInit {
   }
 
   async delete() {
-    let id = this.mascotaSeleccionada.id
+    let id = this.mascotaSeleccionada._id
     this.validateBtnState.set(id, ClrLoadingState.LOADING)
-    await delay(700);
+    // await delay(700);
     this.mascotasService.deleteMascota(id).subscribe((data) => {
       this.validateBtnState.set(id, ClrLoadingState.SUCCESS)
       this.deleteMascotaLocal(id)
@@ -40,11 +42,11 @@ export class MascotasListarComponent implements OnInit {
     })
   }
 
-  private deleteMascotaLocal(id: number): void {
-    this.mascotas.splice(this.mascotas.findIndex((pet) => pet.id == id), 1);
+  private deleteMascotaLocal(id: String): void {
+    this.mascotas.splice(this.mascotas.findIndex((pet) => pet._id == id), 1);
   }
 
-  public getValidateBtnState(mascotaId: number): ClrLoadingState {
+  public getValidateBtnState(mascotaId: String): ClrLoadingState {
     return this.validateBtnState.get(mascotaId)
   }
 
