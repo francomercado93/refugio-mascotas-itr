@@ -10,12 +10,12 @@ https://francomercado93.github.io/refugio-mascotas-itr/inicio
 
 Se trata de una aplicacion CRUD de mascotas. 
 Algunos de los conceptos que usamos de Angular son:
-*Routing
-*Services
-*Directivas de angular (*ngFor, *ngIF)
-*Reutilizacion de componentes
-*Observables
-*Formularios reactivos
+* Routing
+* Services
+* Directivas de angular (*ngFor, *ngIF)
+* Reutilizacion de componentes
+* Observables
+* Formularios reactivos
 
 ## Componentes:
 
