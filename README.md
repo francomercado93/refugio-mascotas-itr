@@ -1,27 +1,39 @@
 # RefugioMascotas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17, usando el framework Clarity para la parte visual. 
 
-## Development server
+## Proyecto subido a GitHub Pages:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+https://francomercado93.github.io/refugio-mascotas-itr/inicio
 
-## Code scaffolding
+## Resumen:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Se trata de una aplicacion CRUD de mascotas. 
+Algunos de los conceptos que usamos de Angular son:
+*Routing
+*Services
+*Directivas de angular (*ngFor, *ngIF)
+*Reutilizacion de componentes
+*Observables
+*Formularios reactivos
 
-## Build
+## Componentes:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### MascotasListarComponent
 
-## Running unit tests
+Se muestran todos las mascotas que existen en la base de datos (H2) presentando los datos con un datagrid de Clarity, el cual permite entre otras cosas ordenar las filas mediante algun criterio. Dentro de esta pantalla hay botones para crear, editar o eliminar una mascota.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### MascotasEditarComponent
 
-## Running end-to-end tests
+Se utiliza el mismo componente para la creacion o modificacion de una mascota. Este componente siempre recibe un id de una mascota entonces se diferencian las acciones de alta o modificacion dependiendo si el id recibido es "new" o un id valido de alguna mascota. 
+Este componente consta de un formulario reactivo con validaciones para cada campo y para todo el formulario en general.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### MascotasAdoptarComponent
 
-## Further help
+En esta pantalla se muestran las mascotas que estan disponibles para adopcion. Se agrupan de acuerdo al tipo de animal.
+Reutilizamos el componente MascotasCardComponent que es el componente que muestra los datos de la mascotas y tiene un boton para adoptar (el cual no funciona, solo nos redirige a una pagina que no existe).
+El componente "padre" itera sobre la lista de animales con la  directiva *ngFor y el componente MascotasCardComponent lo recibe a usando el decorator @Input.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### MascotasNotFoundComponent
+
+Es el componente que tiene la pagina de error que se redirige si no matchea el path ingresado manualmente con las rutas definidas en la constante routes.
