@@ -25,7 +25,6 @@
   <clr-dg-column [clrDgField]="'edad'" [clrDgColType]="'number'">Edad</clr-dg-column>
   <clr-dg-column [clrDgField]="'descripcion'">Descripcion</clr-dg-column>
   <clr-dg-column>Acciones</clr-dg-column>
-  <!-- *clrDgItems similar al *ngFor pero nos permite ordenar, paginar, dentro de un datagrid -->
   <clr-dg-row *clrDgItems="let mascota of mascotas">
     <clr-dg-cell>{{mascota.nombre | titlecase}}</clr-dg-cell>
     <clr-dg-cell>{{mascota.tipo | titlecase}}</clr-dg-cell>
